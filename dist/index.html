@@ -15,9 +15,43 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <script type="module" crossorigin src="./assets/index-CLSaWunq.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CIyTr_o7.css">
+
+  <!-- Tailwind CSS CDN + Custom Configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            royal: {
+              gold: '#D4AF37',
+              lightgold: '#F3E5AB',
+              darkgold: '#AA7C11',
+              maroon: '#4A0E17',
+              deepmaroon: '#2B070C',
+              emerald: '#0B3B24',
+              rose: '#E8A598',
+              cream: '#FFFDD0',
+              velvet: '#1A0B2E'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cinzel Decorative"', 'serif'],
+            cursive: ['"Great Vibes"', 'cursive'],
+            body: ['"Montserrat"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & Canvas Confetti Libraries -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <script type="module" crossorigin src="./assets/index-De7QedZD.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-C61Ld3jy.css">
 </head>
 <body class="bg-royal-velvet min-h-screen text-gray-100 flex flex-col justify-between relative overflow-x-hidden">
 
@@ -282,7 +316,7 @@
           </div>
 
           <div class="relative rounded-2xl overflow-hidden border border-royal-gold/30 h-56 bg-royal-deepmaroon flex items-center justify-center p-4 text-center">
-            <img src="./assets/Invite.jpg" alt="Palace Venue" class="absolute inset-0 w-full h-full object-cover opacity-40">
+            <img src="./assets/Invite-CDGMjn3S.jpg" alt="Palace Venue" class="absolute inset-0 w-full h-full object-cover opacity-40">
             <div class="relative z-10 p-4 bg-royal-deepmaroon/80 rounded-xl border border-royal-gold/40 backdrop-blur-sm">
               <i data-lucide="map-pin" class="w-8 h-8 text-royal-gold mx-auto mb-2 animate-bounce"></i>
               <h4 class="text-sm font-serif text-white font-semibold">Sri karungaliyamman Kovil Mandapam</h4>

@@ -15,7 +15,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+
+  <!-- Tailwind CSS CDN + Custom Configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            royal: {
+              gold: '#D4AF37',
+              lightgold: '#F3E5AB',
+              darkgold: '#AA7C11',
+              maroon: '#4A0E17',
+              deepmaroon: '#2B070C',
+              emerald: '#0B3B24',
+              rose: '#E8A598',
+              cream: '#FFFDD0',
+              velvet: '#1A0B2E'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cinzel Decorative"', 'serif'],
+            cursive: ['"Great Vibes"', 'cursive'],
+            body: ['"Montserrat"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & Canvas Confetti Libraries -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
   <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 <body class="bg-royal-velvet min-h-screen text-gray-100 flex flex-col justify-between relative overflow-x-hidden">

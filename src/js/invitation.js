@@ -1,6 +1,4 @@
 import { weddingConfig } from './config.js';
-import confetti from 'canvas-confetti';
-import { createIcons, Heart, Calendar, Clock, MapPin, Music, Sparkles, Send, Volume2, VolumeX, Share2, CheckCircle2, User, ChevronRight, Copy, Sun } from 'lucide';
 
 // Application State
 const state = {
@@ -23,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initCountdown();
   setupEventListeners();
   renderWishes();
-  createIcons({
-    icons: { Heart, Calendar, Clock, MapPin, Music, Sparkles, Send, Volume2, VolumeX, Share2, CheckCircle2, User, ChevronRight, Copy, Sun }
-  });
+  if (typeof lucide !== 'undefined' && lucide.createIcons) {
+    lucide.createIcons();
+  }
   createFallingPetals();
 });
 
@@ -475,27 +473,30 @@ END:VCALENDAR`;
 
 // Celebration FX
 function triggerConfettiAt(x, y) {
-  confetti({
-    particleCount: 40,
-    spread: 60,
-    origin: { x: x / window.innerWidth, y: y / window.innerHeight },
-    colors: ['#D4AF37', '#F3E5AB', '#AA7C11', '#E8A598']
-  });
+  if (typeof window.confetti === 'function') {
+    window.confetti({
+      particleCount: 40,
+      spread: 60,
+      origin: { x: x / window.innerWidth, y: y / window.innerHeight },
+      colors: ['#D4AF37', '#F3E5AB', '#AA7C11', '#E8A598']
+    });
+  }
 }
 
 function triggerGrandConfetti() {
+  if (typeof window.confetti !== 'function') return;
   const end = Date.now() + 2 * 1000;
   const colors = ['#D4AF37', '#F3E5AB', '#AA7C11', '#FFFDD0', '#E8A598'];
 
   (function frame() {
-    confetti({
+    window.confetti({
       particleCount: 5,
       angle: 60,
       spread: 55,
       origin: { x: 0 },
       colors: colors
     });
-    confetti({
+    window.confetti({
       particleCount: 5,
       angle: 120,
       spread: 55,
