@@ -67,9 +67,23 @@ function renderConfigData() {
 
 // 3. Audio Setup
 function setupAudio() {
-  bgAudio = new Audio(weddingConfig.musicUrl);
+  const initialUrl = weddingConfig.musicUrl || './assets/music/wedding.mp3';
+  bgAudio = new Audio(initialUrl);
   bgAudio.loop = true;
-  bgAudio.volume = 0.4;
+  bgAudio.volume = 0.5;
+
+  // Fallback to secondary track if local file is missing
+  bgAudio.onerror = () => {
+    if (weddingConfig.musicTracks && weddingConfig.musicTracks[1]) {
+      const fallbackUrl = weddingConfig.musicTracks[1].url;
+      if (bgAudio.src !== fallbackUrl) {
+        bgAudio.src = fallbackUrl;
+        if (state.isPlayingMusic) {
+          bgAudio.play().catch(e => console.log('Audio play error:', e));
+        }
+      }
+    }
+  };
 
   const musicBtn = document.getElementById('music-toggle-btn');
   if (musicBtn) {

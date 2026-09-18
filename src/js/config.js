@@ -20,7 +20,21 @@ export const weddingConfig = {
 
   theme: "royal-maroon",
 
-  // musicUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-piano-113220.mp3",
+  // Tamil Marriage Music Configuration
+  // Put your favorite Tamil song MP3 file inside assets/music/wedding.mp3
+  musicUrl: "./assets/music/wedding.mp3",
+  musicTracks: [
+    {
+      id: "custom",
+      name: "🎵 Your Custom Tamil Marriage Song",
+      url: "./assets/music/wedding.mp3"
+    },
+    {
+      id: "nadaswaram",
+      name: "🎺 Traditional Tamil Wedding Instrumental",
+      url: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-piano-113220.mp3"
+    }
+  ],
 
   
     // {
