@@ -1,0 +1,130 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+  --gold-foil: linear-gradient(45deg, #d4af37, #fffdd0, #aa7c11, #ffd700);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #0f0507;
+  color: #fce8db;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+/* Custom Gold Shimmer Text */
+.gold-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+.gold-border {
+  border-image: var(--gold-gradient) 1;
+}
+
+/* 3D Perspective Container for One-Inside-One Effect */
+.perspective-1000 {
+  perspective: 1200px;
+}
+
+/* Envelope Container & 3D Flaps */
+.envelope-box {
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.envelope-flap-top {
+  transform-origin: top center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.4s ease;
+  z-index: 30;
+}
+
+.envelope-open .envelope-flap-top {
+  transform: rotateX(180deg);
+  z-index: 5;
+}
+
+/* Wax Seal Sparkle & Break */
+.wax-seal {
+  background: radial-gradient(circle at 30% 30%, #b22222, #8b0000, #4a0000);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.3);
+  transition: all 0.5s ease;
+}
+
+.wax-seal:hover {
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4), inset 0 2px 4px rgba(255,255,255,0.4);
+}
+
+/* Royal Box Slide Out ("One Inside One" transition) */
+.inner-card-case {
+  transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+/* 3D Unfolding Nested Panels */
+.nested-panel {
+  transform-origin: left center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+
+.nested-panel-right {
+  transform-origin: right center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+
+/* Floating Floral & Sparkle Petals */
+.petal {
+  position: absolute;
+  pointer-events: none;
+  animation: fall 8s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-5vh) rotate(0deg) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(720deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Custom Pattern Backgrounds */
+.bg-mandala {
+  background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-royal-velvet {
+  background: radial-gradient(circle at center, #360913 0%, #170407 100%);
+}
+
+.glass-card {
+  background: rgba(43, 7, 12, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #170407;
+}
+::-webkit-scrollbar-thumb {
+  background: #aa7c11;
+  border-radius: 3px;
+}
